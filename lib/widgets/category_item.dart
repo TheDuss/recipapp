@@ -7,8 +7,12 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
     required this.selectedcategory,
+    required this.onSelectedCategory,
   });
   final Selectedcategory selectedcategory;
+
+  final void Function(Selectedcategory selectedcategory) onSelectedCategory;
+
   String get complexityText {
     return selectedcategory.complexity.name[0].toUpperCase() +
         selectedcategory.complexity.name.substring(1);
@@ -29,7 +33,9 @@ class CategoryItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          onSelectedCategory(selectedcategory);
+        },
         child: Stack(
           children: [
             FadeInImage(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipapp/data/dummy_data.dart';
 import 'package:recipapp/models/category.dart';
-import 'package:recipapp/screens/selected_recipe.dart';
+import 'package:recipapp/screens/selected_category.dart';
 import 'package:recipapp/widgets/category_grid_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -15,7 +15,7 @@ class CategoriesScreen extends StatelessWidget {
 
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => SelectedRecipeScreen(
+        builder: (ctx) => SelectedCategoryScreen(
           title: category.title,
           selectedCategory: filteredCategory,
         ),

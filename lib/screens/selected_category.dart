@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:recipapp/models/selected_category.dart';
+import 'package:recipapp/screens/category_details.dart';
 import 'package:recipapp/widgets/category_item.dart';
 
-class SelectedRecipeScreen extends StatelessWidget {
-  const SelectedRecipeScreen(
+class SelectedCategoryScreen extends StatelessWidget {
+  const SelectedCategoryScreen(
       {super.key, required this.title, required this.selectedCategory});
   final String title;
   final List<Selectedcategory> selectedCategory;
+
+  void selectCategory(BuildContext context, Selectedcategory selectedcategory) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => CategoryDetailsScreen(
+          selectedcategory: selectedcategory,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget content = Center(
@@ -35,8 +47,15 @@ class SelectedRecipeScreen extends StatelessWidget {
     if (selectedCategory.isNotEmpty) {
       content = ListView.builder(
         itemCount: selectedCategory.length,
-        itemBuilder: (ctx, index) =>
-            CategoryItem(selectedcategory: selectedCategory[index]),
+        itemBuilder: (ctx, index) => CategoryItem(
+          selectedcategory: selectedCategory[index],
+          onSelectedCategory: (selectedcategory) {
+            selectCategory(
+              context,
+              selectedcategory,
+            );
+          },
+        ),
       );
     }
     return Scaffold(
