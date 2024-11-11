@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipapp/models/selected_category.dart';
+import 'package:recipapp/widgets/category_item.dart';
 
 class SelectedRecipeScreen extends StatelessWidget {
   const SelectedRecipeScreen(
@@ -34,9 +35,8 @@ class SelectedRecipeScreen extends StatelessWidget {
     if (selectedCategory.isNotEmpty) {
       content = ListView.builder(
         itemCount: selectedCategory.length,
-        itemBuilder: (ctx, index) => Text(
-          selectedCategory[index].title,
-        ),
+        itemBuilder: (ctx, index) =>
+            CategoryItem(selectedcategory: selectedCategory[index]),
       );
     }
     return Scaffold(
