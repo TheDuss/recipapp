@@ -4,16 +4,22 @@ import 'package:recipapp/screens/category_details.dart';
 import 'package:recipapp/widgets/category_item.dart';
 
 class SelectedCategoryScreen extends StatelessWidget {
-  const SelectedCategoryScreen(
-      {super.key, required this.title, required this.selectedCategory});
-  final String title;
+  const SelectedCategoryScreen({
+    super.key,
+    this.title,
+    required this.selectedCategory,
+    required this.onToggleFavorite,
+  });
+  final String? title;
   final List<Selectedcategory> selectedCategory;
+  final void Function(Selectedcategory selectedcategory) onToggleFavorite;
 
   void selectCategory(BuildContext context, Selectedcategory selectedcategory) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) => CategoryDetailsScreen(
           selectedcategory: selectedcategory,
+          onToggleFavorite: onToggleFavorite,
         ),
       ),
     );
@@ -58,9 +64,12 @@ class SelectedCategoryScreen extends StatelessWidget {
         ),
       );
     }
+    if (title == null) {
+      return content;
+    }
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title!),
       ),
       body: content,
     );

@@ -5,9 +5,13 @@ class CategoryDetailsScreen extends StatelessWidget {
   const CategoryDetailsScreen({
     super.key,
     required this.selectedcategory,
+    required this.onToggleFavorite,
   });
 
   final Selectedcategory selectedcategory;
+
+  final void Function(Selectedcategory selectedcategory) onToggleFavorite;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +19,16 @@ class CategoryDetailsScreen extends StatelessWidget {
         title: Text(
           selectedcategory.title,
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              onToggleFavorite(selectedcategory);
+            },
+            icon: const Icon(
+              Icons.star,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
