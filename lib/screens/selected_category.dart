@@ -8,18 +8,15 @@ class SelectedCategoryScreen extends StatelessWidget {
     super.key,
     this.title,
     required this.selectedCategory,
-    required this.onToggleFavorite,
   });
   final String? title;
   final List<Selectedcategory> selectedCategory;
-  final void Function(Selectedcategory selectedcategory) onToggleFavorite;
 
   void selectCategory(BuildContext context, Selectedcategory selectedcategory) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) => CategoryDetailsScreen(
           selectedcategory: selectedcategory,
-          onToggleFavorite: onToggleFavorite,
         ),
       ),
     );

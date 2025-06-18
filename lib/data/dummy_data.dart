@@ -54,6 +54,11 @@ const availableCategories = [
     title: 'Summer',
     color: Colors.teal,
   ),
+  Category(
+    id: 'c11',
+    title: 'Pasta Salat',
+    color: Colors.teal,
+  ),
 ];
 
 const dummySelectedcategory = [
@@ -404,5 +409,38 @@ const dummySelectedcategory = [
     isVegan: true,
     isVegetarian: true,
     isLactoseFree: true,
+  ),
+  Selectedcategory(
+    id: 'm11',
+    categories: [
+      'c11',
+    ],
+    title: 'Pasta Salat',
+    affordability: Affordability.luxurious,
+    complexity: Complexity.simple,
+    imageUrl: '../img/pastasalat-feta.jpg',
+    duration: 30,
+    ingredients: [
+      '500g Pasta',
+      '330g Oliven uden sten',
+      'Springløg',
+      'Feta ost',
+      'Persille'
+          'Mayonnaise',
+      'Citroen'
+          'Salt, Sort Peber & Oliven Oile'
+    ],
+    steps: [
+      'Kog pasta med salt',
+      'Sker oliven i små cirkler',
+      'hak springløg',
+      'hak persille fint',
+      'sæt det sammen i en stor skål',
+      'Tilføj mayonnaise,Citroen,Salt, Sort Peber & Oliven Oile enden servering',
+    ],
+    isGlutenFree: false,
+    isVegan: false,
+    isVegetarian: true,
+    isLactoseFree: false,
   ),
 ];

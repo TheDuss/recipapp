@@ -8,11 +8,9 @@ import 'package:recipapp/widgets/category_grid_item.dart';
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({
     super.key,
-    required this.onToggleFavorite,
     required this.availableMeals,
   });
 
-  final void Function(Selectedcategory selectedcategory) onToggleFavorite;
   final List<Selectedcategory> availableMeals;
   void _selectCategory(BuildContext context, Category category) {
     final filteredCategory = availableMeals
@@ -25,7 +23,6 @@ class CategoriesScreen extends StatelessWidget {
         builder: (ctx) => SelectedCategoryScreen(
           title: category.title,
           selectedCategory: filteredCategory,
-          onToggleFavorite: onToggleFavorite,
         ),
       ),
     );
